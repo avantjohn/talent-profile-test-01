@@ -1,0 +1,205 @@
+/* SPACING & LAYOUT SYSTEM */
+
+:root {
+    /* ===== SPACING TOKENS ===== */
+    
+    /* Base Spacing Scale */
+    --space-unit: 0.25rem;
+    
+    /* Space Values */
+    --space-0: 0;
+    --space-1: calc(var(--space-unit) * 1);    /* 0.25rem */
+    --space-2: calc(var(--space-unit) * 2);    /* 0.5rem */
+    --space-3: calc(var(--space-unit) * 3);    /* 0.75rem */
+    --space-4: calc(var(--space-unit) * 4);    /* 1rem */
+    --space-5: calc(var(--space-unit) * 6);    /* 1.5rem */
+    --space-6: calc(var(--space-unit) * 8);    /* 2rem */
+    --space-7: calc(var(--space-unit) * 12);   /* 3rem */
+    --space-8: calc(var(--space-unit) * 16);   /* 4rem */
+    --space-9: calc(var(--space-unit) * 20);   /* 5rem */
+    --space-10: calc(var(--space-unit) * 24);  /* 6rem */
+    --space-11: calc(var(--space-unit) * 32);  /* 8rem */
+    --space-12: calc(var(--space-unit) * 40);  /* 10rem */
+    
+    /* Semantic Spacing Values */
+    --space-xs: var(--space-2);
+    --space-sm: var(--space-4);
+    --space-md: var(--space-6);
+    --space-lg: var(--space-8);
+    --space-xl: var(--space-10);
+    --space-2xl: var(--space-11);
+    --space-3xl: var(--space-12);
+    
+    /* Component-Specific Spacing */
+    --space-button-padding-x: var(--space-5);
+    --space-button-padding-y: var(--space-3);
+    --space-input-padding-x: var(--space-4);
+    --space-input-padding-y: var(--space-3);
+    --space-card-padding: var(--space-6);
+    --space-section-padding-y: var(--space-10);
+    
+    /* Container Widths */
+    --container-width-xs: 20rem;      /* 320px */
+    --container-width-sm: 30rem;      /* 480px */
+    --container-width-md: 48rem;      /* 768px */
+    --container-width-lg: 64rem;      /* 1024px */
+    --container-width-xl: 80rem;      /* 1280px */
+    --container-width-2xl: 90rem;     /* 1440px */
+    --container-width-max: 96rem;     /* 1536px */
+    
+    /* Grid System */
+    --grid-columns: 12;
+    --grid-gutter: var(--space-6);
+}
+
+/* Responsive Spacing Adjustments */
+@media (max-width: 1024px) {
+    :root {
+        --space-section-padding-y: var(--space-8);
+        --grid-gutter: var(--space-5);
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --space-section-padding-y: var(--space-7);
+        --grid-gutter: var(--space-4);
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --space-section-padding-y: var(--space-6);
+        --grid-gutter: var(--space-3);
+    }
+}
+
+/* Layout Components */
+
+/* Sections */
+section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-section-padding-y) 0;
+}
+
+section.full-width {
+    max-width: 100%;
+}
+
+section.fixed-width {
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+section.full-height {
+    min-height: 100svh;
+}
+
+/* Containers */
+.container {
+    width: 100%;
+    max-width: var(--container-width-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+}
+
+.container-sm {
+    max-width: var(--container-width-sm);
+}
+
+.container-md {
+    max-width: var(--container-width-md);
+}
+
+.container-lg {
+    max-width: var(--container-width-lg);
+}
+
+.container-xl {
+    max-width: var(--container-width-xl);
+}
+
+.container-2xl {
+    max-width: var(--container-width-2xl);
+}
+
+/* Grid System */
+.grid {
+    display: grid;
+    gap: var(--grid-gutter);
+}
+
+.grid-cols-12 {
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+}
+
+.grid-cols-6 {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-1 {
+    grid-template-columns: 1fr;
+}
+
+/* Responsive Grid */
+@media (max-width: 1024px) {
+    .grid-cols-lg-6 { grid-template-columns: repeat(6, 1fr); }
+    .grid-cols-lg-4 { grid-template-columns: repeat(4, 1fr); }
+    .grid-cols-lg-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-cols-lg-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-cols-lg-1 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .grid-cols-md-4 { grid-template-columns: repeat(4, 1fr); }
+    .grid-cols-md-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-cols-md-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-cols-md-1 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    .grid-cols-sm-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-cols-sm-1 { grid-template-columns: 1fr; }
+}
+
+/* Utility Spacing Classes */
+.gap-0 { gap: var(--space-0); }
+.gap-1 { gap: var(--space-1); }
+.gap-2 { gap: var(--space-2); }
+.gap-3 { gap: var(--space-3); }
+.gap-4 { gap: var(--space-4); }
+.gap-5 { gap: var(--space-5); }
+.gap-6 { gap: var(--space-6); }
+.gap-8 { gap: var(--space-8); }
+.gap-10 { gap: var(--space-10); }
+
+.py-0 { padding-top: var(--space-0); padding-bottom: var(--space-0); }
+.py-4 { padding-top: var(--space-4); padding-bottom: var(--space-4); }
+.py-6 { padding-top: var(--space-6); padding-bottom: var(--space-6); }
+.py-8 { padding-top: var(--space-8); padding-bottom: var(--space-8); }
+.py-10 { padding-top: var(--space-10); padding-bottom: var(--space-10); }
+
+.px-0 { padding-left: var(--space-0); padding-right: var(--space-0); }
+.px-4 { padding-left: var(--space-4); padding-right: var(--space-4); }
+.px-6 { padding-left: var(--space-6); padding-right: var(--space-6); }
+.px-8 { padding-left: var(--space-8); padding-right: var(--space-8); }
+.px-10 { padding-left: var(--space-10); padding-right: var(--space-10); }
+
+

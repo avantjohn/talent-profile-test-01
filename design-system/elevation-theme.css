@@ -1,0 +1,131 @@
+/* ELEVATION & SHADOW SYSTEM */
+
+:root {
+    /* ===== ELEVATION TOKENS ===== */
+    
+    /* Shadow Colors */
+    --shadow-color: 0deg 0% 0%;
+    --shadow-strength: 0.12;
+    --shadow-strength-ambient: 0.08;
+    
+    /* Shadow Values */
+    --shadow-xs: 
+        0px 1px 2px hsl(var(--shadow-color) / calc(var(--shadow-strength) - 0.04)),
+        0px 1px 1px hsl(var(--shadow-color) / calc(var(--shadow-strength-ambient) - 0.01));
+        
+    --shadow-sm: 
+        0px 1px 3px hsl(var(--shadow-color) / calc(var(--shadow-strength) - 0.02)),
+        0px 1px 2px hsl(var(--shadow-color) / var(--shadow-strength-ambient));
+        
+    --shadow-md: 
+        0px 4px 6px -1px hsl(var(--shadow-color) / var(--shadow-strength)), 
+        0px 2px 4px -1px hsl(var(--shadow-color) / var(--shadow-strength-ambient));
+        
+    --shadow-lg: 
+        0px 10px 15px -3px hsl(var(--shadow-color) / var(--shadow-strength)), 
+        0px 4px 6px -2px hsl(var(--shadow-color) / var(--shadow-strength-ambient));
+        
+    --shadow-xl: 
+        0px 20px 25px -5px hsl(var(--shadow-color) / var(--shadow-strength)), 
+        0px 10px 10px -5px hsl(var(--shadow-color) / var(--shadow-strength-ambient));
+    
+    --shadow-2xl: 
+        0px 25px 50px -12px hsl(var(--shadow-color) / var(--shadow-strength)),
+        0px 12px 24px -8px hsl(var(--shadow-color) / var(--shadow-strength-ambient));
+        
+    --shadow-inner: 
+        inset 0px 2px 4px 0px hsl(var(--shadow-color) / calc(var(--shadow-strength) - 0.04));
+        
+    --shadow-focus: 
+        0 0 0 3px hsl(var(--shadow-color) / 0.12);
+
+    /* Z-Index Scale */
+    --z-negative: -1;
+    --z-base: 0;
+    --z-raised: 10;
+    --z-dropdown: 1000;
+    --z-sticky: 1100;
+    --z-fixed: 1200;
+    --z-modal: 1300;
+    --z-popover: 1400;
+    --z-toast: 1500;
+    --z-tooltip: 1600;
+    
+    /* Component-Specific Z-Index */
+    --z-header: var(--z-sticky);
+    --z-navbar: var(--z-sticky);
+    --z-menu: var(--z-dropdown);
+    --z-dialog: var(--z-modal);
+    --z-overlay: calc(var(--z-modal) - 1);
+    
+    /* Component-Specific Shadows */
+    --shadow-button: var(--shadow-xs);
+    --shadow-card: var(--shadow-md);
+    --shadow-panel: var(--shadow-lg);
+    --shadow-header: var(--shadow-md);
+    --shadow-dropdown: var(--shadow-lg);
+    --shadow-modal: var(--shadow-xl);
+}
+
+/* Shadow Utilities */
+.shadow-none { box-shadow: none; }
+.shadow-xs { box-shadow: var(--shadow-xs); }
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+.shadow-2xl { box-shadow: var(--shadow-2xl); }
+.shadow-inner { box-shadow: var(--shadow-inner); }
+
+/* Z-Index Utilities */
+.z-negative { z-index: var(--z-negative); }
+.z-base { z-index: var(--z-base); }
+.z-raised { z-index: var(--z-raised); }
+.z-dropdown { z-index: var(--z-dropdown); }
+.z-sticky { z-index: var(--z-sticky); }
+.z-fixed { z-index: var(--z-fixed); }
+.z-modal { z-index: var(--z-modal); }
+.z-popover { z-index: var(--z-popover); }
+.z-toast { z-index: var(--z-toast); }
+.z-tooltip { z-index: var(--z-tooltip); }
+
+/* Elevation Component Classes */
+.card {
+    box-shadow: var(--shadow-card);
+    z-index: var(--z-raised);
+}
+
+.panel {
+    box-shadow: var(--shadow-panel);
+    z-index: var(--z-raised);
+}
+
+.dropdown {
+    box-shadow: var(--shadow-dropdown);
+    z-index: var(--z-dropdown);
+}
+
+.sticky-header {
+    box-shadow: var(--shadow-header);
+    z-index: var(--z-header);
+    position: sticky;
+    top: 0;
+}
+
+.modal-overlay {
+    z-index: var(--z-overlay);
+}
+
+.modal-content {
+    box-shadow: var(--shadow-modal);
+    z-index: var(--z-modal);
+}
+
+/* Color Mode Adaptations */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --shadow-color: 220deg 40% 2%;
+        --shadow-strength: 0.25;
+        --shadow-strength-ambient: 0.15;
+    }
+} 

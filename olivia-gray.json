@@ -1,0 +1,239 @@
+{
+  "name": "Olivia Gray",
+  "type": "designer",
+  "version": "1.0.0",
+  "aesthetic": {
+    "description": "Modern and refined with subtle contrasts, cooler tones, and slightly faster animations for a contemporary digital experience. Emphasizes clarity and sophistication through a carefully balanced color system centered on blue-purples and teals, complemented by precise typography and thoughtful spacing.",
+    "keywords": ["modern", "refined", "cool", "subtle", "sophisticated", "contemporary"]
+  },
+  "design-system": {
+    "meta": {
+      "schema-version": "1.0.0",
+      "implementation": "css",
+      "description": "Implementation that transforms design tokens into CSS variables and Tailwind extensions with oklch color space and modern typography features",
+      "frameworks": ["tailwind", "css-variables"],
+      "preferred-prefix": "og"
+    },
+    "colors": {
+      "core": {
+        "base": "oklch(45% 0.09 270)",
+        "harmony": {
+          "core-02": 340,
+          "core-03": 180,
+          "core-04": 40,
+          "core-05": 130,
+          "core-06": 180,
+          "core-07": 220,
+          "core-08": 310,
+          "core-09": 200,
+          "core-10": 90,
+          "core-11": 90,
+          "core-12": 310
+        }
+      },
+      "factors": {
+        "tint-scale": 1.32,
+        "shade-scale": 1.28,
+        "chroma-shift": 1.2,
+        "chroma-neutral": 0.02
+      },
+      "semantic": {
+        "brand": {
+          "primary": "core-07-500",
+          "secondary": "core-05-600"
+        },
+        "background": {
+          "primary": "core-00-900",
+          "secondary": "core-00-800",
+          "tertiary": "core-00-700",
+          "accent": "core-05-800"
+        },
+        "text": {
+          "primary": "core-00-100",
+          "secondary": "core-00-200",
+          "tertiary": "core-00-300",
+          "accent": "core-07-300"
+        },
+        "component": {
+          "primary": "core-07-600",
+          "secondary": "core-00-700",
+          "accent": "core-05-600"
+        },
+        "status": {
+          "success": "core-04-500",
+          "warning": "core-10-500",
+          "error": "core-03-500",
+          "info": "core-05-500"
+        }
+      }
+    },
+    "typography": {
+      "fonts": {
+        "heading": "Roboto Flex, sans-serif",
+        "body": "Roboto Flex, sans-serif",
+        "mono": "JetBrains Mono, monospace"
+      },
+      "scale": {
+        "base-size": "16px",
+        "type-scale": 1.33
+      },
+      "weights": {
+        "heading": 780,
+        "body": 400,
+        "emphasis": 600
+      },
+      "line-heights": {
+        "tight": 1.15,
+        "normal": 1.45,
+        "loose": 1.75,
+        "display": 1.05
+      },
+      "letter-spacing": {
+        "tight": "-0.035em",
+        "normal": "-0.001em",
+        "wide": "0.03em"
+      },
+      "trim": {
+        "top": "0.45em",
+        "bottom": "0.38em"
+      }
+    },
+    "spacing": {
+      "unit": "0.25rem",
+      "scale": {
+        "custom-multipliers": [
+          1, 2, 3, 5, 8, 13, 21, 34, 55, 89
+        ]
+      },
+      "semantic": {
+        "button-x": 5,
+        "button-y": 3,
+        "input-x": 4,
+        "input-y": 3,
+        "card": 6,
+        "section-y": 11
+      },
+      "containers": {
+        "max-width": "90rem"
+      },
+      "grid": {
+        "columns": 12,
+        "gutter": 6
+      }
+    },
+    "borders": {
+      "weights": {
+        "thin": "1px",
+        "regular": "2px",
+        "thick": "3px"
+      },
+      "radius": {
+        "scale": "0.45rem",
+        "button": "md",
+        "input": "sm",
+        "card": "lg",
+        "pill": "full"
+      }
+    },
+    "elevation": {
+      "shadow": {
+        "color": "220deg 30% 10%",
+        "strength": 0.15,
+        "strength-ambient": 0.09
+      },
+      "component": {
+        "button": "xs",
+        "card": "md",
+        "panel": "lg",
+        "header": "md",
+        "modal": "xl"
+      }
+    },
+    "motion": {
+      "duration": {
+        "fastest": "45ms",
+        "fast": "90ms",
+        "normal": "180ms",
+        "slow": "300ms",
+        "slower": "450ms"
+      },
+      "easing": {
+        "productive": "cubic-bezier(0, 0, 0.2, 1)",
+        "expressive": "cubic-bezier(0.34, 1.56, 0.64, 1)"
+      }
+    },
+    "media": {
+      "ratios": {
+        "preferred": "golden",
+        "gallery": "square"
+      },
+      "radius": "md",
+      "overlay": {
+        "gradient": "linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0) 55%)"
+      }
+    },
+    "components": {
+      "button": {
+        "default": {
+          "background": "component.primary",
+          "text": "text.primary",
+          "border": "none",
+          "radius": "radius.button",
+          "shadow": "elevation.component.button",
+          "padding-x": "spacing.semantic.button-x",
+          "padding-y": "spacing.semantic.button-y",
+          "transition": "motion.easing.productive"
+        },
+        "secondary": {
+          "background": "component.secondary",
+          "text": "text.primary",
+          "border": "none"
+        },
+        "accent": {
+          "background": "component.accent",
+          "text": "text.primary",
+          "border": "none"
+        }
+      },
+      "card": {
+        "default": {
+          "background": "background.secondary",
+          "border": "borders.weights.thin",
+          "border-color": "background.tertiary",
+          "radius": "borders.radius.card",
+          "shadow": "elevation.component.card",
+          "padding": "spacing.semantic.card"
+        }
+      },
+      "input": {
+        "default": {
+          "background": "background.tertiary",
+          "text": "text.primary",
+          "border": "borders.weights.thin",
+          "border-color": "component.secondary",
+          "radius": "borders.radius.input",
+          "padding-x": "spacing.semantic.input-x",
+          "padding-y": "spacing.semantic.input-y",
+          "focus-ring": "component.primary"
+        }
+      }
+    },
+    "reference": {
+      "radius-values": {
+        "xs": "0.125rem",
+        "sm": "0.25rem",
+        "md": "0.5rem",
+        "lg": "1rem",
+        "xl": "1.5rem",
+        "full": "9999px"
+      },
+      "shadow-values": {
+        "xs": "0 1px 2px -1px rgba(var(--shadow-color-rgb), var(--shadow-strength))",
+        "sm": "0 1px 3px -1px rgba(var(--shadow-color-rgb), var(--shadow-strength)), 0 1px 2px -1px rgba(var(--shadow-color-rgb), var(--shadow-ambient-strength))",
+        "md": "0 4px 6px -1px rgba(var(--shadow-color-rgb), var(--shadow-strength)), 0 2px 4px -2px rgba(var(--shadow-color-rgb), var(--shadow-ambient-strength))",
+        "lg": "0 10px 15px -3px rgba(var(--shadow-color-rgb), var(--shadow-strength)), 0 4px 6px -4px rgba(var(--shadow-color-rgb), var(--shadow-ambient-strength))",
+        "xl": "0 20px 25px -5px rgba(var(--shadow-color-rgb), var(--shadow-strength)), 0 8px 10px -6px rgba(var(--shadow-color-rgb), var(--shadow-ambient-strength))"
+      }
+    }
+  }
+}

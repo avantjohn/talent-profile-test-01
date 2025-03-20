@@ -1,0 +1,182 @@
+/* MEDIA SYSTEM */
+
+:root {
+    /* ===== MEDIA TOKENS ===== */
+    
+    /* Aspect Ratios */
+    --ratio-square: 1 / 1;
+    --ratio-portrait: 3 / 4;
+    --ratio-landscape: 4 / 3;
+    --ratio-wide: 16 / 9;
+    --ratio-ultrawide: 21 / 9;
+    --ratio-golden: 1.618 / 1;
+    
+    /* Media Radii - Uses the radius tokens from borders-theme.css */
+    --media-radius-none: 0;
+    --media-radius-sm: var(--radius-sm);
+    --media-radius-md: var(--radius-md);
+    --media-radius-lg: var(--radius-lg);
+    --media-radius-full: var(--radius-full);
+    
+    /* Media Borders */
+    --media-border-width: var(--border-thin);
+    --media-border-color: hsl(var(--shadow-color) / 0.1);
+    
+    /* Media Shadows - Uses elevation tokens */
+    --media-shadow: var(--shadow-md);
+    
+    /* Media Container Sizes */
+    --media-size-xs: 12rem;    /* 192px */
+    --media-size-sm: 18rem;    /* 288px */
+    --media-size-md: 24rem;    /* 384px */
+    --media-size-lg: 36rem;    /* 576px */
+    --media-size-xl: 48rem;    /* 768px */
+    
+    /* Video Controls */
+    --media-controls-bg: rgba(0, 0, 0, 0.5);
+    --media-controls-color: white;
+    --media-overlay-gradient: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 50%);
+}
+
+/* Base Media Styles */
+img, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Aspect Ratio Container */
+.media-container {
+    position: relative;
+    width: 100%;
+}
+
+.media-container > img,
+.media-container > video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Aspect Ratio Classes */
+.ratio-square { aspect-ratio: var(--ratio-square); }
+.ratio-portrait { aspect-ratio: var(--ratio-portrait); }
+.ratio-landscape { aspect-ratio: var(--ratio-landscape); }
+.ratio-wide { aspect-ratio: var(--ratio-wide); }
+.ratio-ultrawide { aspect-ratio: var(--ratio-ultrawide); }
+.ratio-golden { aspect-ratio: var(--ratio-golden); }
+
+/* Object Fit Classes */
+.object-cover { object-fit: cover; }
+.object-contain { object-fit: contain; }
+.object-fill { object-fit: fill; }
+.object-none { object-fit: none; }
+.object-scale-down { object-fit: scale-down; }
+
+/* Object Position Classes */
+.object-center { object-position: center; }
+.object-top { object-position: top; }
+.object-right { object-position: right; }
+.object-bottom { object-position: bottom; }
+.object-left { object-position: left; }
+
+/* Media Size Classes */
+.media-xs { width: var(--media-size-xs); }
+.media-sm { width: var(--media-size-sm); }
+.media-md { width: var(--media-size-md); }
+.media-lg { width: var(--media-size-lg); }
+.media-xl { width: var(--media-size-xl); }
+
+/* Media Border & Radius Classes */
+.media-border {
+    border: var(--media-border-width) solid var(--media-border-color);
+}
+
+.media-radius-none { border-radius: var(--media-radius-none); }
+.media-radius-sm { border-radius: var(--media-radius-sm); }
+.media-radius-md { border-radius: var(--media-radius-md); }
+.media-radius-lg { border-radius: var(--media-radius-lg); }
+.media-radius-full { border-radius: var(--media-radius-full); }
+
+/* Media Shadow */
+.media-shadow {
+    box-shadow: var(--media-shadow);
+}
+
+/* Media Overlay */
+.media-overlay {
+    position: relative;
+}
+
+.media-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--media-overlay-gradient);
+    pointer-events: none;
+}
+
+/* Media Caption */
+.media-caption {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-top: var(--space-2);
+    line-height: var(--line-height-tight);
+}
+
+/* Responsive Media */
+.media-responsive {
+    width: 100%;
+}
+
+/* Media Figure (with caption) */
+figure.media-figure {
+    margin: 0;
+    width: 100%;
+}
+
+figure.media-figure > figcaption {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-top: var(--space-2);
+    line-height: var(--line-height-tight);
+}
+
+/* Custom Video Player Styling */
+.video-player {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.video-player:hover .video-controls {
+    opacity: 1;
+}
+
+.video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-3);
+    background: var(--media-controls-bg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.video-controls button {
+    color: var(--media-controls-color);
+    background: transparent;
+    border: none;
+    padding: var(--space-1);
+    cursor: pointer;
+} 

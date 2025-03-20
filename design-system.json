@@ -1,0 +1,376 @@
+{
+  "name": "Design System Structure",
+  "version": "1.0.0",
+  "description": "Core structure for the modular design system that powers talent profiles",
+  "schema": {
+    "colors": {
+      "core": {
+        "type": "object",
+        "description": "Base color from which the entire palette is derived",
+        "properties": {
+          "base": {
+            "type": "string",
+            "format": "oklch",
+            "description": "Primary base color in OKLCH format (lightness, chroma, hue)"
+          },
+          "harmony": {
+            "type": "object",
+            "description": "Hue shifts for each color in the system, relative to the base color",
+            "properties": {
+              "core-02": { "type": "number", "description": "Hue shift in degrees" },
+              "core-03": { "type": "number", "description": "Hue shift in degrees" },
+              "core-04": { "type": "number", "description": "Hue shift in degrees" },
+              "core-05": { "type": "number", "description": "Hue shift in degrees" },
+              "core-06": { "type": "number", "description": "Hue shift in degrees" },
+              "core-07": { "type": "number", "description": "Hue shift in degrees" },
+              "core-08": { "type": "number", "description": "Hue shift in degrees" },
+              "core-09": { "type": "number", "description": "Hue shift in degrees" },
+              "core-10": { "type": "number", "description": "Hue shift in degrees" },
+              "core-11": { "type": "number", "description": "Hue shift in degrees" },
+              "core-12": { "type": "number", "description": "Hue shift in degrees" }
+            }
+          }
+        }
+      },
+      "factors": {
+        "type": "object",
+        "description": "Scaling factors that control how colors change across the palette",
+        "properties": {
+          "tint-scale": { 
+            "type": "number", 
+            "description": "Multiplier for lightening colors (higher = more dramatic tints)" 
+          },
+          "shade-scale": { 
+            "type": "number", 
+            "description": "Multiplier for darkening colors (higher = more dramatic shades)" 
+          },
+          "chroma-shift": { 
+            "type": "number", 
+            "description": "Multiplier for saturation adjustment (higher = more saturated)" 
+          },
+          "chroma-neutral": { 
+            "type": "number", 
+            "description": "Base saturation for neutral colors (higher = less gray)" 
+          }
+        }
+      },
+      "semantic": {
+        "type": "object",
+        "description": "Meaningful color assignments for UI elements",
+        "properties": {
+          "brand": {
+            "type": "object",
+            "properties": {
+              "primary": { "type": "string", "description": "Main brand color" },
+              "secondary": { "type": "string", "description": "Supporting brand color" }
+            }
+          },
+          "background": {
+            "type": "object",
+            "properties": {
+              "primary": { "type": "string", "description": "Main background color" },
+              "secondary": { "type": "string", "description": "Alternative background color" },
+              "tertiary": { "type": "string", "description": "Third-level background color" },
+              "accent": { "type": "string", "description": "Highlighted background areas" }
+            }
+          },
+          "text": {
+            "type": "object",
+            "properties": {
+              "primary": { "type": "string", "description": "Main text color" },
+              "secondary": { "type": "string", "description": "Supporting text color" },
+              "tertiary": { "type": "string", "description": "De-emphasized text color" },
+              "accent": { "type": "string", "description": "Highlighted text color" }
+            }
+          },
+          "component": {
+            "type": "object",
+            "properties": {
+              "primary": { "type": "string", "description": "Primary component color" },
+              "secondary": { "type": "string", "description": "Secondary component color" },
+              "accent": { "type": "string", "description": "Accent component color" }
+            }
+          },
+          "status": {
+            "type": "object",
+            "properties": {
+              "success": { "type": "string", "description": "Success/positive status color" },
+              "warning": { "type": "string", "description": "Warning status color" },
+              "error": { "type": "string", "description": "Error/negative status color" },
+              "info": { "type": "string", "description": "Information status color" }
+            }
+          }
+        }
+      }
+    },
+    "typography": {
+      "type": "object",
+      "description": "Typography system configuration",
+      "properties": {
+        "fonts": {
+          "type": "object",
+          "properties": {
+            "heading": { "type": "string", "description": "Font family for headings" },
+            "body": { "type": "string", "description": "Font family for body text" },
+            "mono": { "type": "string", "description": "Monospace font for code" }
+          }
+        },
+        "scale": {
+          "type": "object",
+          "properties": {
+            "base-size": { "type": "string", "description": "Base font size (typically in px)" },
+            "type-scale": { "type": "number", "description": "Ratio for type scale progression" }
+          }
+        },
+        "weights": {
+          "type": "object",
+          "properties": {
+            "heading": { "type": "number", "description": "Font weight for headings" },
+            "body": { "type": "number", "description": "Font weight for body text" },
+            "emphasis": { "type": "number", "description": "Font weight for emphasized text" }
+          }
+        },
+        "line-heights": {
+          "type": "object",
+          "properties": {
+            "tight": { "type": "number", "description": "Tight line height for headings" },
+            "normal": { "type": "number", "description": "Standard line height for body text" },
+            "loose": { "type": "number", "description": "Loose line height for readable blocks" },
+            "display": { "type": "number", "description": "Line height for large display text" }
+          }
+        },
+        "letter-spacing": {
+          "type": "object",
+          "properties": {
+            "tight": { "type": "string", "description": "Tighter letter spacing (typically in em)" },
+            "normal": { "type": "string", "description": "Default letter spacing" },
+            "wide": { "type": "string", "description": "Wider letter spacing for emphasis" }
+          }
+        },
+        "trim": {
+          "type": "object",
+          "properties": {
+            "top": { "type": "string", "description": "Top font trim value for optical adjustment" },
+            "bottom": { "type": "string", "description": "Bottom font trim value for optical adjustment" }
+          }
+        }
+      }
+    },
+    "spacing": {
+      "type": "object",
+      "description": "Spacing system configuration",
+      "properties": {
+        "unit": { "type": "string", "description": "Base unit for spacing (typically in rem)" },
+        "scale": {
+          "type": "object",
+          "properties": {
+            "custom-multipliers": { 
+              "type": "array", 
+              "items": { "type": "number" },
+              "description": "Custom multipliers for spacing scale"
+            }
+          }
+        },
+        "semantic": {
+          "type": "object",
+          "properties": {
+            "button-x": { "type": "number", "description": "Horizontal padding for buttons (in units)" },
+            "button-y": { "type": "number", "description": "Vertical padding for buttons (in units)" },
+            "input-x": { "type": "number", "description": "Horizontal padding for inputs (in units)" },
+            "input-y": { "type": "number", "description": "Vertical padding for inputs (in units)" },
+            "card": { "type": "number", "description": "Padding for cards (in units)" },
+            "section-y": { "type": "number", "description": "Vertical spacing between sections (in units)" }
+          }
+        },
+        "containers": {
+          "type": "object",
+          "properties": {
+            "max-width": { "type": "string", "description": "Maximum width for content containers" }
+          }
+        },
+        "grid": {
+          "type": "object",
+          "properties": {
+            "columns": { "type": "number", "description": "Number of columns in the grid" },
+            "gutter": { "type": "number", "description": "Gutter width between columns (in units)" }
+          }
+        }
+      }
+    },
+    "borders": {
+      "type": "object",
+      "description": "Border system configuration",
+      "properties": {
+        "weights": {
+          "type": "object",
+          "properties": {
+            "thin": { "type": "string", "description": "Thin border width" },
+            "regular": { "type": "string", "description": "Regular border width" },
+            "thick": { "type": "string", "description": "Thick border width" }
+          }
+        },
+        "radius": {
+          "type": "object",
+          "properties": {
+            "scale": { "type": "string", "description": "Base border radius value" },
+            "button": { "type": "string", "description": "Border radius for buttons" },
+            "input": { "type": "string", "description": "Border radius for inputs" },
+            "card": { "type": "string", "description": "Border radius for cards" },
+            "pill": { "type": "string", "description": "Border radius for pill shapes" }
+          }
+        }
+      }
+    },
+    "elevation": {
+      "type": "object",
+      "description": "Shadow and elevation system",
+      "properties": {
+        "shadow": {
+          "type": "object",
+          "properties": {
+            "color": { "type": "string", "description": "Color for shadows (HSL format)" },
+            "strength": { "type": "number", "description": "Opacity strength for directed shadows" },
+            "strength-ambient": { "type": "number", "description": "Opacity strength for ambient shadows" }
+          }
+        },
+        "component": {
+          "type": "object",
+          "properties": {
+            "button": { "type": "string", "description": "Shadow size for buttons" },
+            "card": { "type": "string", "description": "Shadow size for cards" },
+            "panel": { "type": "string", "description": "Shadow size for panels" },
+            "header": { "type": "string", "description": "Shadow size for headers" },
+            "modal": { "type": "string", "description": "Shadow size for modals" }
+          }
+        }
+      }
+    },
+    "motion": {
+      "type": "object",
+      "description": "Animation and transition system",
+      "properties": {
+        "duration": {
+          "type": "object",
+          "properties": {
+            "fastest": { "type": "string", "description": "Duration for micro-interactions" },
+            "fast": { "type": "string", "description": "Duration for small transitions" },
+            "normal": { "type": "string", "description": "Standard animation duration" },
+            "slow": { "type": "string", "description": "Duration for emphasized transitions" },
+            "slower": { "type": "string", "description": "Duration for major transitions" }
+          }
+        },
+        "easing": {
+          "type": "object",
+          "properties": {
+            "productive": { "type": "string", "description": "Easing curve for UI interactions" },
+            "expressive": { "type": "string", "description": "Easing curve for emphasis" }
+          }
+        }
+      }
+    },
+    "media": {
+      "type": "object",
+      "description": "Media styling and ratios",
+      "properties": {
+        "ratios": {
+          "type": "object",
+          "properties": {
+            "preferred": { "type": "string", "description": "Preferred aspect ratio for media" },
+            "gallery": { "type": "string", "description": "Aspect ratio for gallery images" }
+          }
+        },
+        "radius": { "type": "string", "description": "Border radius for media elements" },
+        "overlay": {
+          "type": "object",
+          "properties": {
+            "gradient": { "type": "string", "description": "Gradient overlay for media" }
+          }
+        }
+      }
+    },
+    "components": {
+      "type": "object",
+      "description": "Component styling definitions",
+      "properties": {
+        "button": {
+          "type": "object",
+          "properties": {
+            "default": {
+              "type": "object",
+              "properties": {
+                "background": { "type": "string", "description": "Background color" },
+                "text": { "type": "string", "description": "Text color" },
+                "border": { "type": "string", "description": "Border style" },
+                "radius": { "type": "string", "description": "Border radius reference" },
+                "shadow": { "type": "string", "description": "Shadow reference" },
+                "padding-x": { "type": "string", "description": "Horizontal padding reference" },
+                "padding-y": { "type": "string", "description": "Vertical padding reference" },
+                "transition": { "type": "string", "description": "Transition reference" }
+              }
+            },
+            "secondary": {
+              "type": "object",
+              "properties": {
+                "background": { "type": "string", "description": "Background color" },
+                "text": { "type": "string", "description": "Text color" },
+                "border": { "type": "string", "description": "Border style" }
+              }
+            },
+            "accent": {
+              "type": "object",
+              "properties": {
+                "background": { "type": "string", "description": "Background color" },
+                "text": { "type": "string", "description": "Text color" },
+                "border": { "type": "string", "description": "Border style" }
+              }
+            }
+          }
+        },
+        "card": {
+          "type": "object",
+          "properties": {
+            "default": {
+              "type": "object",
+              "properties": {
+                "background": { "type": "string", "description": "Background color" },
+                "border": { "type": "string", "description": "Border style" },
+                "border-color": { "type": "string", "description": "Border color" },
+                "radius": { "type": "string", "description": "Border radius reference" },
+                "shadow": { "type": "string", "description": "Shadow reference" },
+                "padding": { "type": "string", "description": "Padding reference" }
+              }
+            }
+          }
+        },
+        "input": {
+          "type": "object",
+          "properties": {
+            "default": {
+              "type": "object",
+              "properties": {
+                "background": { "type": "string", "description": "Background color" },
+                "text": { "type": "string", "description": "Text color" },
+                "border": { "type": "string", "description": "Border style" },
+                "border-color": { "type": "string", "description": "Border color" },
+                "radius": { "type": "string", "description": "Border radius reference" },
+                "padding-x": { "type": "string", "description": "Horizontal padding reference" },
+                "padding-y": { "type": "string", "description": "Vertical padding reference" },
+                "focus-ring": { "type": "string", "description": "Focus ring color" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "extensions": {
+    "tailwind": {
+      "enabled": true,
+      "prefix": "ds"
+    },
+    "css": {
+      "enabled": true,
+      "prefix": "--ds"
+    }
+  }
+} 

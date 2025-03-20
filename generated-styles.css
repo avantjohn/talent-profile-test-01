@@ -1,0 +1,319 @@
+/* Olivia Gray Design System - CSS Implementation (Generated) */
+:root {
+  /* Colors - Core base */
+  --og-color-core: oklch(45% 0.09 -90);
+  
+  /* Typography */
+  --og-font-heading: 'Roboto Flex', sans-serif;
+  --og-font-body: 'Roboto Flex', sans-serif;
+  --og-font-mono: 'JetBrains Mono', monospace;
+  --og-font-size-base: 16px;
+  --og-type-scale: 1.33;
+  
+  --og-font-size-sm: calc(var(--og-font-size-base) / var(--og-type-scale));
+  --og-font-size-md: var(--og-font-size-base);
+  --og-font-size-lg: calc(var(--og-font-size-base) * var(--og-type-scale));
+  --og-font-size-xl: calc(var(--og-font-size-base) * var(--og-type-scale) * var(--og-type-scale));
+  --og-font-size-xxl: calc(var(--og-font-size-base) * var(--og-type-scale) * var(--og-type-scale) * var(--og-type-scale));
+  --og-font-size-xxxl: calc(var(--og-font-size-base) * var(--og-type-scale) * var(--og-type-scale) * var(--og-type-scale) * var(--og-type-scale));
+  
+  --og-font-weight-body: 400;
+  --og-font-weight-emphasis: 600;
+  --og-font-weight-heading: 780;
+  
+  --og-line-height-tight: 1.15;
+  --og-line-height-normal: 1.45;
+  --og-line-height-loose: 1.75;
+  --og-line-height-display: 1.05;
+  
+  --og-letter-spacing-tight: -0.035em;
+  --og-letter-spacing-normal: -0.001em;
+  --og-letter-spacing-wide: 0.03em;
+  
+  /* Spacing */
+  --og-spacing-unit: 0.25rem;
+  --og-spacing-1: calc(var(--og-spacing-unit) * 1);
+  --og-spacing-2: calc(var(--og-spacing-unit) * 2);
+  --og-spacing-3: calc(var(--og-spacing-unit) * 3);
+  --og-spacing-5: calc(var(--og-spacing-unit) * 5);
+  --og-spacing-8: calc(var(--og-spacing-unit) * 8);
+  --og-spacing-13: calc(var(--og-spacing-unit) * 13);
+  --og-spacing-21: calc(var(--og-spacing-unit) * 21);
+  --og-spacing-34: calc(var(--og-spacing-unit) * 34);
+  
+  /* Semantic spacing */
+  --og-spacing-button-x: calc(var(--og-spacing-unit) * 5);
+  --og-spacing-button-y: calc(var(--og-spacing-unit) * 3);
+  --og-spacing-input-x: calc(var(--og-spacing-unit) * 4);
+  --og-spacing-input-y: calc(var(--og-spacing-unit) * 3);
+  --og-spacing-card: calc(var(--og-spacing-unit) * 6);
+  
+  /* Container */
+  --og-container-max-width: 90rem;
+  
+  /* Borders */
+  --og-border-thin: 1px;
+  --og-border-regular: 2px;
+  --og-border-thick: 3px;
+  
+  /* Border radius values */
+  --og-radius-base: 0.45rem;
+  --og-radius-xs: 0.125rem;
+  --og-radius-sm: 0.25rem;
+  --og-radius-md: 0.5rem;
+  --og-radius-lg: 1rem;
+  --og-radius-xl: 1.5rem;
+  --og-radius-full: 9999px;
+  
+  /* Component-specific radius */
+  --og-radius-button: var(--og-radius-md);
+  --og-radius-input: var(--og-radius-sm);
+  --og-radius-card: var(--og-radius-lg);
+  
+  /* Elevation */
+  --og-shadow-color: 220deg 30% 10%;
+  --og-shadow-strength: 0.15;
+  --og-shadow-ambient-strength: 0.09;
+  
+  /* Shadow values */
+  --og-shadow-xs: 0 1px 2px -1px rgba(0, 0, 0, var(--og-shadow-strength));
+  --og-shadow-sm: 0 1px 3px -1px rgba(0, 0, 0, var(--og-shadow-strength)), 0 1px 2px -1px rgba(0, 0, 0, var(--og-shadow-ambient-strength));
+  --og-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, var(--og-shadow-strength)), 0 2px 4px -2px rgba(0, 0, 0, var(--og-shadow-ambient-strength));
+  --og-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, var(--og-shadow-strength)), 0 4px 6px -4px rgba(0, 0, 0, var(--og-shadow-ambient-strength));
+  --og-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, var(--og-shadow-strength)), 0 8px 10px -6px rgba(0, 0, 0, var(--og-shadow-ambient-strength));
+  
+  /* Motion */
+  --og-duration-fastest: 45ms;
+  --og-duration-fast: 90ms;
+  --og-duration-normal: 180ms;
+  --og-duration-slow: 300ms;
+  --og-duration-slower: 450ms;
+  
+  --og-easing-productive: cubic-bezier(0, 0, 0.2, 1);
+  --og-easing-expressive: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Color System Configuration */
+  --og-color-tint-scale: 1.32;
+  --og-color-shade-scale: 1.28;
+  --og-color-chroma-shift: 1.2;
+  --og-color-chroma-neutral: 0.02;
+
+  /* Define Core Color and Harmony Shifts */
+  --og-color-core-01: var(--og-color-core);
+  
+  /* IMPORTANT: There's an unusual inconsistency in browser rendering of OKLCH hue angles.
+     While mathematically equivalent, negative angles (e.g., -90°) often render correctly 
+     while positive equivalents (e.g., 270°) may produce inverted colors.
+     Use negative angles when possible for base colors to avoid unexpected rendering. */
+  --og-color-core-02: 340; /* Shift from base */
+  --og-color-core-03: 180; /* Shift from base */
+  --og-color-core-04: 40; /* Shift from base */
+  --og-color-core-05: 130; /* Shift from base */
+  --og-color-core-06: 180; /* Shift from base */
+  --og-color-core-07: 220; /* Shift from base */
+  --og-color-core-08: 310; /* Shift from base */
+  --og-color-core-09: 200; /* Shift from base */
+  --og-color-core-10: 90; /* Shift from base */
+  --og-color-core-11: 90; /* Shift from base */
+  --og-color-core-12: 310; /* Shift from base */
+
+  /* Tint-Shade Factors */
+  --og-color-tint-04: calc(pow(var(--og-color-tint-scale), 9));
+  --og-color-tint-03: calc(pow(var(--og-color-tint-scale), 6));
+  --og-color-tint-02: calc(pow(var(--og-color-tint-scale), 3));
+  --og-color-tint-01: calc(pow(var(--og-color-tint-scale), 2));
+  --og-color-shade-01: calc(pow(var(--og-color-shade-scale), -2));
+  --og-color-shade-02: calc(pow(var(--og-color-shade-scale), -3));
+  --og-color-shade-03: calc(pow(var(--og-color-shade-scale), -6));
+  --og-color-shade-04: calc(pow(var(--og-color-shade-scale), -9));
+
+  /* Chroma Shift Definitions */
+  --og-chroma-shift-100: calc(c * var(--og-color-chroma-shift) - .175);
+  --og-chroma-shift-200: calc(c * var(--og-color-chroma-shift) - .1);
+  --og-chroma-shift-300: calc(c * var(--og-color-chroma-shift));
+  --og-chroma-shift-400: calc(c * var(--og-color-chroma-shift));
+  --og-chroma-shift-500: calc(c * var(--og-color-chroma-shift));
+  --og-chroma-shift-600: calc(c * var(--og-color-chroma-shift));
+  --og-chroma-shift-700: calc(c * var(--og-color-chroma-shift));
+  --og-chroma-shift-800: calc(c * var(--og-color-chroma-shift));
+  --og-chroma-shift-900: calc(c * var(--og-color-chroma-shift));
+
+  /* Neutral Colors */
+  --og-color-core-00-100: oklch(from var(--og-color-core-01) calc(l * pow(var(--og-color-tint-scale), 4)) calc(c * var(--og-color-chroma-neutral)) h / 1);
+  --og-color-core-00-200: oklch(from var(--og-color-core-01) calc(l * pow(var(--og-color-tint-scale), 3)) calc(c * var(--og-color-chroma-neutral)) h / 1);
+  --og-color-core-00-300: oklch(from var(--og-color-core-01) calc(l * pow(var(--og-color-tint-scale), 2)) calc(c * var(--og-color-chroma-neutral)) h / 1);
+  --og-color-core-00-400: oklch(from var(--og-color-core-01) calc(l * pow(var(--og-color-tint-scale), 1)) calc(c * var(--og-color-chroma-neutral)) h / 1);
+  --og-color-core-00-500: oklch(from var(--og-color-core-01) calc(l * pow(1, 0)) calc(c * var(--og-color-chroma-neutral)) h / 1);
+  --og-color-core-00-600: oklch(from var(--og-color-core-01) calc(l * pow(var(--og-color-shade-scale), -1)) calc(c * var(--og-color-chroma-neutral)) h / 1);
+  --og-color-core-00-700: oklch(from var(--og-color-core-01) calc(l * pow(var(--og-color-shade-scale), -2)) calc(c * var(--og-color-chroma-neutral)) h / 1);
+  --og-color-core-00-800: oklch(from var(--og-color-core-01) calc(l * pow(var(--og-color-shade-scale), -3)) calc(c * var(--og-color-chroma-neutral)) h / 1);
+  --og-color-core-00-900: oklch(from var(--og-color-core-01) calc(l * pow(var(--og-color-shade-scale), -4)) calc(c * var(--og-color-chroma-neutral)) h / 1);
+
+  /* 01 Colors (Base Color) */
+  --og-color-core-01-100: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-04)) var(--og-chroma-shift-100) h / 1);
+  --og-color-core-01-200: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-03)) var(--og-chroma-shift-200) h / 1);
+  --og-color-core-01-300: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-02)) var(--og-chroma-shift-300) h / 1);
+  --og-color-core-01-400: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-01)) var(--og-chroma-shift-400) h / 1);
+  --og-color-core-01-500: oklch(from var(--og-color-core-01) l var(--og-chroma-shift-500) h / 1);
+  --og-color-core-01-600: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-01)) var(--og-chroma-shift-600) h / 1);
+  --og-color-core-01-700: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-02)) var(--og-chroma-shift-700) h / 1);
+  --og-color-core-01-800: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-03)) var(--og-chroma-shift-800) h / 1);
+  --og-color-core-01-900: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-04)) var(--og-chroma-shift-900) h / 1);
+
+  /* Generate color variations for all harmony shifts */
+
+  /* Core-02 Colors */
+  --og-color-core-02-100: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-04)) var(--og-chroma-shift-100) calc(h + var(--og-color-core-02)) / 1);
+  --og-color-core-02-200: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-03)) var(--og-chroma-shift-200) calc(h + var(--og-color-core-02)) / 1);
+  --og-color-core-02-300: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-02)) var(--og-chroma-shift-300) calc(h + var(--og-color-core-02)) / 1);
+  --og-color-core-02-400: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-01)) var(--og-chroma-shift-400) calc(h + var(--og-color-core-02)) / 1);
+  --og-color-core-02-500: oklch(from var(--og-color-core-01) l var(--og-chroma-shift-500) calc(h + var(--og-color-core-02)) / 1);
+  --og-color-core-02-600: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-01)) var(--og-chroma-shift-600) calc(h + var(--og-color-core-02)) / 1);
+  --og-color-core-02-700: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-02)) var(--og-chroma-shift-700) calc(h + var(--og-color-core-02)) / 1);
+  --og-color-core-02-800: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-03)) var(--og-chroma-shift-800) calc(h + var(--og-color-core-02)) / 1);
+  --og-color-core-02-900: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-04)) var(--og-chroma-shift-900) calc(h + var(--og-color-core-02)) / 1);
+  /* Core-03 Colors */
+  --og-color-core-03-100: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-04)) var(--og-chroma-shift-100) calc(h + var(--og-color-core-03)) / 1);
+  --og-color-core-03-200: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-03)) var(--og-chroma-shift-200) calc(h + var(--og-color-core-03)) / 1);
+  --og-color-core-03-300: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-02)) var(--og-chroma-shift-300) calc(h + var(--og-color-core-03)) / 1);
+  --og-color-core-03-400: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-01)) var(--og-chroma-shift-400) calc(h + var(--og-color-core-03)) / 1);
+  --og-color-core-03-500: oklch(from var(--og-color-core-01) l var(--og-chroma-shift-500) calc(h + var(--og-color-core-03)) / 1);
+  --og-color-core-03-600: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-01)) var(--og-chroma-shift-600) calc(h + var(--og-color-core-03)) / 1);
+  --og-color-core-03-700: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-02)) var(--og-chroma-shift-700) calc(h + var(--og-color-core-03)) / 1);
+  --og-color-core-03-800: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-03)) var(--og-chroma-shift-800) calc(h + var(--og-color-core-03)) / 1);
+  --og-color-core-03-900: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-04)) var(--og-chroma-shift-900) calc(h + var(--og-color-core-03)) / 1);
+  /* Core-04 Colors */
+  --og-color-core-04-100: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-04)) var(--og-chroma-shift-100) calc(h + var(--og-color-core-04)) / 1);
+  --og-color-core-04-200: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-03)) var(--og-chroma-shift-200) calc(h + var(--og-color-core-04)) / 1);
+  --og-color-core-04-300: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-02)) var(--og-chroma-shift-300) calc(h + var(--og-color-core-04)) / 1);
+  --og-color-core-04-400: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-01)) var(--og-chroma-shift-400) calc(h + var(--og-color-core-04)) / 1);
+  --og-color-core-04-500: oklch(from var(--og-color-core-01) l var(--og-chroma-shift-500) calc(h + var(--og-color-core-04)) / 1);
+  --og-color-core-04-600: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-01)) var(--og-chroma-shift-600) calc(h + var(--og-color-core-04)) / 1);
+  --og-color-core-04-700: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-02)) var(--og-chroma-shift-700) calc(h + var(--og-color-core-04)) / 1);
+  --og-color-core-04-800: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-03)) var(--og-chroma-shift-800) calc(h + var(--og-color-core-04)) / 1);
+  --og-color-core-04-900: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-04)) var(--og-chroma-shift-900) calc(h + var(--og-color-core-04)) / 1);
+  /* Core-05 Colors */
+  --og-color-core-05-100: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-04)) var(--og-chroma-shift-100) calc(h + var(--og-color-core-05)) / 1);
+  --og-color-core-05-200: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-03)) var(--og-chroma-shift-200) calc(h + var(--og-color-core-05)) / 1);
+  --og-color-core-05-300: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-02)) var(--og-chroma-shift-300) calc(h + var(--og-color-core-05)) / 1);
+  --og-color-core-05-400: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-01)) var(--og-chroma-shift-400) calc(h + var(--og-color-core-05)) / 1);
+  --og-color-core-05-500: oklch(from var(--og-color-core-01) l var(--og-chroma-shift-500) calc(h + var(--og-color-core-05)) / 1);
+  --og-color-core-05-600: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-01)) var(--og-chroma-shift-600) calc(h + var(--og-color-core-05)) / 1);
+  --og-color-core-05-700: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-02)) var(--og-chroma-shift-700) calc(h + var(--og-color-core-05)) / 1);
+  --og-color-core-05-800: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-03)) var(--og-chroma-shift-800) calc(h + var(--og-color-core-05)) / 1);
+  --og-color-core-05-900: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-04)) var(--og-chroma-shift-900) calc(h + var(--og-color-core-05)) / 1);
+  /* Core-06 Colors */
+  --og-color-core-06-100: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-04)) var(--og-chroma-shift-100) calc(h + var(--og-color-core-06)) / 1);
+  --og-color-core-06-200: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-03)) var(--og-chroma-shift-200) calc(h + var(--og-color-core-06)) / 1);
+  --og-color-core-06-300: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-02)) var(--og-chroma-shift-300) calc(h + var(--og-color-core-06)) / 1);
+  --og-color-core-06-400: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-01)) var(--og-chroma-shift-400) calc(h + var(--og-color-core-06)) / 1);
+  --og-color-core-06-500: oklch(from var(--og-color-core-01) l var(--og-chroma-shift-500) calc(h + var(--og-color-core-06)) / 1);
+  --og-color-core-06-600: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-01)) var(--og-chroma-shift-600) calc(h + var(--og-color-core-06)) / 1);
+  --og-color-core-06-700: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-02)) var(--og-chroma-shift-700) calc(h + var(--og-color-core-06)) / 1);
+  --og-color-core-06-800: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-03)) var(--og-chroma-shift-800) calc(h + var(--og-color-core-06)) / 1);
+  --og-color-core-06-900: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-04)) var(--og-chroma-shift-900) calc(h + var(--og-color-core-06)) / 1);
+  /* Core-07 Colors */
+  --og-color-core-07-100: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-04)) var(--og-chroma-shift-100) calc(h + var(--og-color-core-07)) / 1);
+  --og-color-core-07-200: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-03)) var(--og-chroma-shift-200) calc(h + var(--og-color-core-07)) / 1);
+  --og-color-core-07-300: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-02)) var(--og-chroma-shift-300) calc(h + var(--og-color-core-07)) / 1);
+  --og-color-core-07-400: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-01)) var(--og-chroma-shift-400) calc(h + var(--og-color-core-07)) / 1);
+  --og-color-core-07-500: oklch(from var(--og-color-core-01) l var(--og-chroma-shift-500) calc(h + var(--og-color-core-07)) / 1);
+  --og-color-core-07-600: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-01)) var(--og-chroma-shift-600) calc(h + var(--og-color-core-07)) / 1);
+  --og-color-core-07-700: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-02)) var(--og-chroma-shift-700) calc(h + var(--og-color-core-07)) / 1);
+  --og-color-core-07-800: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-03)) var(--og-chroma-shift-800) calc(h + var(--og-color-core-07)) / 1);
+  --og-color-core-07-900: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-04)) var(--og-chroma-shift-900) calc(h + var(--og-color-core-07)) / 1);
+  /* Core-08 Colors */
+  --og-color-core-08-100: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-04)) var(--og-chroma-shift-100) calc(h + var(--og-color-core-08)) / 1);
+  --og-color-core-08-200: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-03)) var(--og-chroma-shift-200) calc(h + var(--og-color-core-08)) / 1);
+  --og-color-core-08-300: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-02)) var(--og-chroma-shift-300) calc(h + var(--og-color-core-08)) / 1);
+  --og-color-core-08-400: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-01)) var(--og-chroma-shift-400) calc(h + var(--og-color-core-08)) / 1);
+  --og-color-core-08-500: oklch(from var(--og-color-core-01) l var(--og-chroma-shift-500) calc(h + var(--og-color-core-08)) / 1);
+  --og-color-core-08-600: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-01)) var(--og-chroma-shift-600) calc(h + var(--og-color-core-08)) / 1);
+  --og-color-core-08-700: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-02)) var(--og-chroma-shift-700) calc(h + var(--og-color-core-08)) / 1);
+  --og-color-core-08-800: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-03)) var(--og-chroma-shift-800) calc(h + var(--og-color-core-08)) / 1);
+  --og-color-core-08-900: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-04)) var(--og-chroma-shift-900) calc(h + var(--og-color-core-08)) / 1);
+  /* Core-09 Colors */
+  --og-color-core-09-100: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-04)) var(--og-chroma-shift-100) calc(h + var(--og-color-core-09)) / 1);
+  --og-color-core-09-200: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-03)) var(--og-chroma-shift-200) calc(h + var(--og-color-core-09)) / 1);
+  --og-color-core-09-300: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-02)) var(--og-chroma-shift-300) calc(h + var(--og-color-core-09)) / 1);
+  --og-color-core-09-400: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-01)) var(--og-chroma-shift-400) calc(h + var(--og-color-core-09)) / 1);
+  --og-color-core-09-500: oklch(from var(--og-color-core-01) l var(--og-chroma-shift-500) calc(h + var(--og-color-core-09)) / 1);
+  --og-color-core-09-600: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-01)) var(--og-chroma-shift-600) calc(h + var(--og-color-core-09)) / 1);
+  --og-color-core-09-700: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-02)) var(--og-chroma-shift-700) calc(h + var(--og-color-core-09)) / 1);
+  --og-color-core-09-800: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-03)) var(--og-chroma-shift-800) calc(h + var(--og-color-core-09)) / 1);
+  --og-color-core-09-900: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-04)) var(--og-chroma-shift-900) calc(h + var(--og-color-core-09)) / 1);
+  /* Core-10 Colors */
+  --og-color-core-10-100: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-04)) var(--og-chroma-shift-100) calc(h + var(--og-color-core-10)) / 1);
+  --og-color-core-10-200: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-03)) var(--og-chroma-shift-200) calc(h + var(--og-color-core-10)) / 1);
+  --og-color-core-10-300: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-02)) var(--og-chroma-shift-300) calc(h + var(--og-color-core-10)) / 1);
+  --og-color-core-10-400: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-01)) var(--og-chroma-shift-400) calc(h + var(--og-color-core-10)) / 1);
+  --og-color-core-10-500: oklch(from var(--og-color-core-01) l var(--og-chroma-shift-500) calc(h + var(--og-color-core-10)) / 1);
+  --og-color-core-10-600: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-01)) var(--og-chroma-shift-600) calc(h + var(--og-color-core-10)) / 1);
+  --og-color-core-10-700: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-02)) var(--og-chroma-shift-700) calc(h + var(--og-color-core-10)) / 1);
+  --og-color-core-10-800: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-03)) var(--og-chroma-shift-800) calc(h + var(--og-color-core-10)) / 1);
+  --og-color-core-10-900: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-04)) var(--og-chroma-shift-900) calc(h + var(--og-color-core-10)) / 1);
+  /* Core-11 Colors */
+  --og-color-core-11-100: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-04)) var(--og-chroma-shift-100) calc(h + var(--og-color-core-11)) / 1);
+  --og-color-core-11-200: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-03)) var(--og-chroma-shift-200) calc(h + var(--og-color-core-11)) / 1);
+  --og-color-core-11-300: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-02)) var(--og-chroma-shift-300) calc(h + var(--og-color-core-11)) / 1);
+  --og-color-core-11-400: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-01)) var(--og-chroma-shift-400) calc(h + var(--og-color-core-11)) / 1);
+  --og-color-core-11-500: oklch(from var(--og-color-core-01) l var(--og-chroma-shift-500) calc(h + var(--og-color-core-11)) / 1);
+  --og-color-core-11-600: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-01)) var(--og-chroma-shift-600) calc(h + var(--og-color-core-11)) / 1);
+  --og-color-core-11-700: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-02)) var(--og-chroma-shift-700) calc(h + var(--og-color-core-11)) / 1);
+  --og-color-core-11-800: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-03)) var(--og-chroma-shift-800) calc(h + var(--og-color-core-11)) / 1);
+  --og-color-core-11-900: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-04)) var(--og-chroma-shift-900) calc(h + var(--og-color-core-11)) / 1);
+  /* Core-12 Colors */
+  --og-color-core-12-100: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-04)) var(--og-chroma-shift-100) calc(h + var(--og-color-core-12)) / 1);
+  --og-color-core-12-200: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-03)) var(--og-chroma-shift-200) calc(h + var(--og-color-core-12)) / 1);
+  --og-color-core-12-300: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-02)) var(--og-chroma-shift-300) calc(h + var(--og-color-core-12)) / 1);
+  --og-color-core-12-400: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-01)) var(--og-chroma-shift-400) calc(h + var(--og-color-core-12)) / 1);
+  --og-color-core-12-500: oklch(from var(--og-color-core-01) l var(--og-chroma-shift-500) calc(h + var(--og-color-core-12)) / 1);
+  --og-color-core-12-600: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-01)) var(--og-chroma-shift-600) calc(h + var(--og-color-core-12)) / 1);
+  --og-color-core-12-700: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-02)) var(--og-chroma-shift-700) calc(h + var(--og-color-core-12)) / 1);
+  --og-color-core-12-800: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-03)) var(--og-chroma-shift-800) calc(h + var(--og-color-core-12)) / 1);
+  --og-color-core-12-900: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-04)) var(--og-chroma-shift-900) calc(h + var(--og-color-core-12)) / 1);
+
+  /* Semantic color assignments - Dark Mode (Default) */
+  /* Using direct definitions with explicit hue angles instead of relative calculations */
+  --og-brand-primary: oklch(45% 0.09 -140);
+  --og-brand-secondary: oklch(40% 0.09 130);
+  
+  --og-bg-primary: var(--og-color-core-00-900);
+  --og-bg-secondary: var(--og-color-core-00-800);
+  --og-bg-tertiary: var(--og-color-core-00-700);
+  --og-bg-accent: oklch(25% 0.09 130);
+  
+  --og-text-primary: var(--og-color-core-00-100);
+  --og-text-secondary: var(--og-color-core-00-200);
+  --og-text-tertiary: var(--og-color-core-00-300);
+  --og-text-accent: oklch(65% 0.09 -140);
+  
+  --og-component-primary: oklch(40% 0.09 -140);
+  --og-component-secondary: var(--og-color-core-00-700);
+  --og-component-accent: oklch(40% 0.09 130);
+  
+  --og-status-success: oklch(45% 0.09 40);
+  --og-status-warning: oklch(45% 0.09 90);
+  --og-status-error: oklch(45% 0.09 0); /* Red at 0 degrees */
+  --og-status-info: oklch(45% 0.09 130);
+}
+
+/* Light Mode Variables */
+.light-mode {
+  --og-bg-primary: var(--og-color-core-00-100);
+  --og-bg-secondary: var(--og-color-core-00-200);
+  --og-bg-tertiary: var(--og-color-core-00-300);
+  --og-bg-accent: oklch(70% 0.09 130);
+
+  --og-text-primary: var(--og-color-core-00-900);
+  --og-text-secondary: var(--og-color-core-00-800);
+  --og-text-tertiary: var(--og-color-core-00-700);
+
+  --og-component-secondary: var(--og-color-core-00-400);
+
+  /* Override component colors for better contrast in light mode */
+  --og-component-primary: oklch(35% 0.09 -140);
+  --og-component-accent: oklch(35% 0.09 130);
+  
+  --og-shadow-color: 220deg 10% 40%;
+}

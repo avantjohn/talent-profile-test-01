@@ -1,0 +1,52 @@
+/* BORDER STYLES */
+
+:root {
+    /* ===== BORDER TOKENS ===== */
+    
+    /* Border Weights */
+    --border-thin: 1px;
+    --border-regular: 2px;
+    --border-thick: 3px;
+    
+    /* Border Radius Scale */
+    --radius-scale: 0.5rem;
+    
+    /* Border Radius Values */
+    --radius-round: 100vmax;
+    --radius-full: 9999px;
+    --radius-2xl: calc(var(--radius-scale) * 2.5);
+    --radius-xl: calc(var(--radius-scale) * 2);
+    --radius-lg: calc(var(--radius-scale) * 1.5);
+    --radius-md: var(--radius-scale);
+    --radius-sm: calc(var(--radius-scale) * 0.75);
+    --radius-xs: calc(var(--radius-scale) * 0.5);
+    
+    /* Semantic Border Assignments */
+    --border-input: var(--border-thin);
+    --border-card: var(--border-thin);
+    --border-button: var(--border-thin);
+    --border-focus: var(--border-regular);
+    
+    /* Component-Specific Border Radius */
+    --radius-button: var(--radius-md);
+    --radius-input: var(--radius-sm);
+    --radius-card: var(--radius-lg);
+    --radius-pill: var(--radius-full);
+    --radius-avatar: var(--radius-full);
+    --radius-checkbox: var(--radius-xs);
+    
+    /* Border Styles */
+    --border-style-solid: solid;
+    --border-style-dashed: dashed;
+    --border-style-dotted: dotted;
+}
+
+/* Utility Classes */
+.rounded-none { border-radius: 0; }
+.rounded-xs { border-radius: var(--radius-xs); }
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-2xl { border-radius: var(--radius-2xl); }
+.rounded-full { border-radius: var(--radius-full); }
