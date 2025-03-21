@@ -18,17 +18,17 @@
       "core": {
         "base": "oklch(45% 0.09 270)",
         "harmony": {
-          "core-02": 340,
-          "core-03": 180,
-          "core-04": 40,
-          "core-05": 130,
-          "core-06": 180,
-          "core-07": 220,
-          "core-08": 310,
-          "core-09": 200,
-          "core-10": 90,
-          "core-11": 90,
-          "core-12": 310
+          "core-02": 30,
+          "core-03": 60,
+          "core-04": 90,
+          "core-05": 120,
+          "core-06": 150,
+          "core-07": 180,
+          "core-08": 210,
+          "core-09": 240,
+          "core-10": 270,
+          "core-11": 300,
+          "core-12": 330
         }
       },
       "factors": {
@@ -39,31 +39,72 @@
       },
       "semantic": {
         "brand": {
-          "primary": "core-07-500",
-          "secondary": "core-05-600"
+          "primary": "core-01-500",
+          "secondary": "dynamic-analogous-1"
         },
         "background": {
           "primary": "core-00-900",
           "secondary": "core-00-800",
           "tertiary": "core-00-700",
-          "accent": "core-05-800"
+          "accent": "dynamic-brand-accent"
         },
         "text": {
           "primary": "core-00-100",
           "secondary": "core-00-200",
           "tertiary": "core-00-300",
-          "accent": "core-07-300"
+          "accent": "core-01-300"
         },
         "component": {
-          "primary": "core-07-600",
+          "primary": "brand-primary",
           "secondary": "core-00-700",
-          "accent": "core-05-600"
+          "accent": "brand-secondary",
+          "interactive": {
+            "primary-hover": "dynamic-hover",
+            "primary-active": "dynamic-active",
+            "primary-focus": "dynamic-focus",
+            "primary-disabled": "dynamic-disabled",
+            "secondary-hover": "dynamic-hover",
+            "secondary-active": "dynamic-active",
+            "secondary-focus": "dynamic-focus",
+            "secondary-disabled": "dynamic-disabled",
+            "accent-hover": "dynamic-hover",
+            "accent-active": "dynamic-active",
+            "accent-focus": "dynamic-focus",
+            "accent-disabled": "dynamic-disabled",
+            "focus-ring": "dynamic-focus-ring"
+          }
         },
         "status": {
-          "success": "core-04-500",
-          "warning": "core-10-500",
-          "error": "core-03-500",
-          "info": "core-05-500"
+          "success": "dynamic-success",
+          "warning": "dynamic-warning",
+          "error": "dynamic-error",
+          "info": "dynamic-info",
+          "interactive": {
+            "success-hover": "dynamic-status-hover",
+            "warning-hover": "dynamic-status-hover",
+            "error-hover": "dynamic-status-hover",
+            "info-hover": "dynamic-status-hover"
+          }
+        },
+        "color-relationships": {
+          "complementary": "dynamic-complementary",
+          "triadic": ["dynamic-triadic-1", "dynamic-triadic-2"],
+          "analogous": ["dynamic-analogous-1", "dynamic-analogous-2"],
+          "split-complementary": ["dynamic-split-comp-1", "dynamic-split-comp-2"],
+          "tetradic": ["dynamic-tetradic-1", "dynamic-tetradic-2", "dynamic-tetradic-3"],
+          "monochromatic": {
+            "lighter": "dynamic-mono-lighter",
+            "darker": "dynamic-mono-darker",
+            "saturated": "dynamic-mono-saturated",
+            "muted": "dynamic-mono-muted"
+          },
+          "state-modifiers": {
+            "hover-lightness": 0.95,
+            "active-lightness": 0.9,
+            "focus-opacity": 0.25,
+            "disabled-opacity": 0.6,
+            "disabled-saturation": 0.7
+          }
         }
       }
     },

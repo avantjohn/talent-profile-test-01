@@ -1,7 +1,7 @@
 /* Olivia Gray Design System - CSS Implementation (Generated) */
 :root {
   /* Colors - Core base */
-  --og-color-core: oklch(45% 0.09 -90);
+  --og-color-core: oklch(45% 0.09 270);
   
   /* Typography */
   --og-font-heading: 'Roboto Flex', sans-serif;
@@ -101,21 +101,17 @@
   /* Define Core Color and Harmony Shifts */
   --og-color-core-01: var(--og-color-core);
   
-  /* IMPORTANT: There's an unusual inconsistency in browser rendering of OKLCH hue angles.
-     While mathematically equivalent, negative angles (e.g., -90°) often render correctly 
-     while positive equivalents (e.g., 270°) may produce inverted colors.
-     Use negative angles when possible for base colors to avoid unexpected rendering. */
-  --og-color-core-02: 340; /* Shift from base */
-  --og-color-core-03: 180; /* Shift from base */
-  --og-color-core-04: 40; /* Shift from base */
-  --og-color-core-05: 130; /* Shift from base */
-  --og-color-core-06: 180; /* Shift from base */
-  --og-color-core-07: 220; /* Shift from base */
-  --og-color-core-08: 310; /* Shift from base */
-  --og-color-core-09: 200; /* Shift from base */
-  --og-color-core-10: 90; /* Shift from base */
-  --og-color-core-11: 90; /* Shift from base */
-  --og-color-core-12: 310; /* Shift from base */
+  --og-color-core-02: 30; /* Shift from base */
+  --og-color-core-03: 60; /* Shift from base */
+  --og-color-core-04: 90; /* Shift from base */
+  --og-color-core-05: 120; /* Shift from base */
+  --og-color-core-06: 150; /* Shift from base */
+  --og-color-core-07: 180; /* Shift from base */
+  --og-color-core-08: 210; /* Shift from base */
+  --og-color-core-09: 240; /* Shift from base */
+  --og-color-core-10: 270; /* Shift from base */
+  --og-color-core-11: 300; /* Shift from base */
+  --og-color-core-12: 330; /* Shift from base */
 
   /* Tint-Shade Factors */
   --og-color-tint-04: calc(pow(var(--og-color-tint-scale), 9));
@@ -272,48 +268,145 @@
   --og-color-core-12-700: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-02)) var(--og-chroma-shift-700) calc(h + var(--og-color-core-12)) / 1);
   --og-color-core-12-800: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-03)) var(--og-chroma-shift-800) calc(h + var(--og-color-core-12)) / 1);
   --og-color-core-12-900: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-04)) var(--og-chroma-shift-900) calc(h + var(--og-color-core-12)) / 1);
+  /* Dynamic Semantic Color Rules */
+  /* Complementary */
+  --og-brand-hue-complementary: calc(h + 180);
+
+  /* Triadic */
+  --og-brand-hue-triadic-1: calc(h + 120);
+  --og-brand-hue-triadic-2: calc(h + 240);
+
+  /* Analogous */
+  --og-brand-hue-analogous-1: calc(h + 30);
+  --og-brand-hue-analogous-2: calc(h + -30);
+
+  /* Split Complementary */
+  --og-brand-hue-split-comp-1: calc(h + 150);
+  --og-brand-hue-split-comp-2: calc(h + 210);
+
+  /* Tetradic */
+  --og-brand-hue-tetradic-1: calc(h + 90);
+  --og-brand-hue-tetradic-2: calc(h + 180);
+  --og-brand-hue-tetradic-3: calc(h + 270);
+
+  /* Monochromatic Intensity Shifts (maintain hue, vary lightness/chroma) */
+  --og-brand-mono-lighter: oklch(from var(--og-color-core-01) calc(l * 1.2) c h / 1);
+  --og-brand-mono-darker: oklch(from var(--og-color-core-01) calc(l * 0.8) c h / 1);
+  --og-brand-mono-saturated: oklch(from var(--og-color-core-01) l calc(c * 1.3) h / 1);
+  --og-brand-mono-muted: oklch(from var(--og-color-core-01) l calc(c * 0.7) h / 1);
+
+  /* Status Color Semantic Meaning Definitions */
+  --og-success-hue: 135; /* Green */
+  --og-warning-hue: 40; /* Gold/Yellow */
+  --og-error-hue: 15; /* Red */
+  --og-info-hue: 220; /* Blue */
+
+  /* Status Colors - Dynamic Calculations */
+  --og-status-success-base: oklch(from var(--og-color-core-01) l calc(c * 1.3) var(--og-success-hue) / 1);
+  --og-status-warning-base: oklch(from var(--og-color-core-01) l calc(c * 1.3) var(--og-warning-hue) / 1);
+  --og-status-error-base: oklch(from var(--og-color-core-01) l calc(c * 1.3) var(--og-error-hue) / 1);
+  --og-status-info-base: oklch(from var(--og-color-core-01) l calc(c * 1.3) var(--og-info-hue) / 1);
+
+  /* Interactive State Modifiers */
+  --og-state-hover-lightness: 0.95; /* Darken slightly for hover */
+  --og-state-active-lightness: 0.9; /* Darken more for active/pressed */
+  --og-state-focus-opacity: 0.25; /* Opacity for focus rings */
+  --og-state-disabled-opacity: 0.6; /* Reduce opacity for disabled state */
+  --og-state-disabled-saturation: 0.7; /* Reduce saturation for disabled state */
 
   /* Semantic color assignments - Dark Mode (Default) */
-  /* Using direct definitions with explicit hue angles instead of relative calculations */
-  --og-brand-primary: oklch(45% 0.09 -140);
-  --og-brand-secondary: oklch(40% 0.09 130);
-  
+  --og-brand-primary: var(--og-color-core-01-500);
+  --og-brand-secondary: oklch(from var(--og-color-core-01) l var(--og-chroma-shift-500) var(--og-brand-hue-analogous-1) / 1);
+
   --og-bg-primary: var(--og-color-core-00-900);
   --og-bg-secondary: var(--og-color-core-00-800);
   --og-bg-tertiary: var(--og-color-core-00-700);
-  --og-bg-accent: oklch(25% 0.09 130);
-  
+  --og-bg-accent: oklch(from var(--og-color-core-01) calc(l * var(--og-color-shade-03)) calc(c * 0.8) h / 1);
+
   --og-text-primary: var(--og-color-core-00-100);
   --og-text-secondary: var(--og-color-core-00-200);
   --og-text-tertiary: var(--og-color-core-00-300);
-  --og-text-accent: oklch(65% 0.09 -140);
-  
-  --og-component-primary: oklch(40% 0.09 -140);
+  --og-text-accent: var(--og-color-core-01-300);
+
+  --og-component-primary: var(--og-brand-primary);
   --og-component-secondary: var(--og-color-core-00-700);
-  --og-component-accent: oklch(40% 0.09 130);
-  
-  --og-status-success: oklch(45% 0.09 40);
-  --og-status-warning: oklch(45% 0.09 90);
-  --og-status-error: oklch(45% 0.09 0); /* Red at 0 degrees */
-  --og-status-info: oklch(45% 0.09 130);
+  --og-component-accent: var(--og-brand-secondary);
+
+  /* Component Interactive States */
+  --og-component-primary-hover: oklch(from var(--og-component-primary) calc(l * var(--og-state-hover-lightness)) c h / 1);
+  --og-component-primary-active: oklch(from var(--og-component-primary) calc(l * var(--og-state-active-lightness)) c h / 1);
+  --og-component-primary-focus: oklch(from var(--og-component-primary) l c h / var(--og-state-focus-opacity));
+  --og-component-primary-disabled: oklch(from var(--og-component-primary) l calc(c * var(--og-state-disabled-saturation)) h / var(--og-state-disabled-opacity));
+
+  --og-component-secondary-hover: oklch(from var(--og-component-secondary) calc(l * var(--og-state-hover-lightness)) c h / 1);
+  --og-component-secondary-active: oklch(from var(--og-component-secondary) calc(l * var(--og-state-active-lightness)) c h / 1);
+  --og-component-secondary-focus: oklch(from var(--og-component-secondary) l c h / var(--og-state-focus-opacity));
+  --og-component-secondary-disabled: oklch(from var(--og-component-secondary) l calc(c * var(--og-state-disabled-saturation)) h / var(--og-state-disabled-opacity));
+
+  --og-component-accent-hover: oklch(from var(--og-component-accent) calc(l * var(--og-state-hover-lightness)) c h / 1);
+  --og-component-accent-active: oklch(from var(--og-component-accent) calc(l * var(--og-state-active-lightness)) c h / 1);
+  --og-component-accent-focus: oklch(from var(--og-component-accent) l c h / var(--og-state-focus-opacity));
+  --og-component-accent-disabled: oklch(from var(--og-component-accent) l calc(c * var(--og-state-disabled-saturation)) h / var(--og-state-disabled-opacity));
+
+  --og-focus-ring: oklch(from var(--og-component-primary) l calc(c * 1.1) h / var(--og-state-focus-opacity));
+
+  /* Status Colors */
+  --og-status-success: var(--og-status-success-base);
+  --og-status-warning: var(--og-status-warning-base);
+  --og-status-error: var(--og-status-error-base);
+  --og-status-info: var(--og-status-info-base);
+
+  /* Status Interactive States */
+  --og-status-success-hover: oklch(from var(--og-status-success) calc(l * var(--og-state-hover-lightness)) c h / 1);
+  --og-status-warning-hover: oklch(from var(--og-status-warning) calc(l * var(--og-state-hover-lightness)) c h / 1);
+  --og-status-error-hover: oklch(from var(--og-status-error) calc(l * var(--og-state-hover-lightness)) c h / 1);
+  --og-status-info-hover: oklch(from var(--og-status-info) calc(l * var(--og-state-hover-lightness)) c h / 1);
 }
 
 /* Light Mode Variables */
 .light-mode {
   --og-bg-primary: var(--og-color-core-00-100);
   --og-bg-secondary: var(--og-color-core-00-200);
-  --og-bg-tertiary: var(--og-color-core-00-300);
-  --og-bg-accent: oklch(70% 0.09 130);
+  --og-bg-tertiary: var(--og-color-core-00-250);
+  --og-bg-accent: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-04)) calc(c * 0.4) h / 1);
 
   --og-text-primary: var(--og-color-core-00-900);
   --og-text-secondary: var(--og-color-core-00-800);
   --og-text-tertiary: var(--og-color-core-00-700);
 
-  --og-component-secondary: var(--og-color-core-00-400);
+  --og-brand-primary: var(--og-color-core-01-500);
+  --og-brand-secondary: oklch(from var(--og-color-core-01) calc(l * var(--og-color-tint-01)) var(--og-chroma-shift-500) var(--og-brand-hue-analogous-1) / 1);
 
-  /* Override component colors for better contrast in light mode */
-  --og-component-primary: oklch(35% 0.09 -140);
-  --og-component-accent: oklch(35% 0.09 130);
-  
+  --og-component-primary: oklch(from var(--og-brand-primary) calc(l * 0.9) calc(c * 1.2) h / 1); /* Darker, more saturated primary */
+  --og-component-secondary: var(--og-color-core-00-300);
+  --og-component-accent: oklch(from var(--og-brand-secondary) calc(l * 0.85) calc(c * 1.3) h / 1); /* Darker, more saturated accent */
+
+  /* Light Mode Component Text Colors */
+  --og-component-text-primary: var(--og-color-core-00-100); /* Light text for primary buttons */
+  --og-component-text-secondary: var(--og-color-core-00-900); /* Dark text for secondary buttons */
+  --og-component-text-accent: var(--og-color-core-00-100); /* Light text for accent buttons */
+
+  /* Light Mode Component Interactive States */
+  --og-component-primary-hover: oklch(from var(--og-component-primary) calc(l * 0.9) calc(c * 1.1) h / 1);
+  --og-component-primary-active: oklch(from var(--og-component-primary) calc(l * 0.85) calc(c * 1.15) h / 1);
+  --og-component-secondary-hover: oklch(from var(--og-component-secondary) calc(l * 0.92) c h / 1);
+  --og-component-secondary-active: oklch(from var(--og-component-secondary) calc(l * 0.85) c h / 1);
+  --og-component-accent-hover: oklch(from var(--og-component-accent) calc(l * 0.9) calc(c * 1.1) h / 1);
+  --og-component-accent-active: oklch(from var(--og-component-accent) calc(l * 0.85) calc(c * 1.15) h / 1);
+
+  --og-focus-ring: oklch(from var(--og-component-primary) calc(l * 0.95) calc(c * 1.3) h / 0.35);
+
+  /* Light Mode Status Colors */
+  --og-status-success: oklch(from var(--og-status-success-base) calc(l * 1.3) calc(c * 0.75) h / 1);
+  --og-status-warning: oklch(from var(--og-status-warning-base) calc(l * 1.3) calc(c * 0.75) h / 1);
+  --og-status-error: oklch(from var(--og-status-error-base) calc(l * 1.3) calc(c * 0.75) h / 1);
+  --og-status-info: oklch(from var(--og-status-info-base) calc(l * 1.3) calc(c * 0.75) h / 1);
+
+  --og-status-success-hover: oklch(from var(--og-status-success) calc(l * 0.95) calc(c * 1.1) h / 1);
+  --og-status-warning-hover: oklch(from var(--og-status-warning) calc(l * 0.95) calc(c * 1.1) h / 1);
+  --og-status-error-hover: oklch(from var(--og-status-error) calc(l * 0.95) calc(c * 1.1) h / 1);
+  --og-status-info-hover: oklch(from var(--og-status-info) calc(l * 0.95) calc(c * 1.1) h / 1);
+
+  --og-color-core-00-250: oklch(from var(--og-color-core-01) calc(l * pow(var(--og-color-tint-scale), 2.7)) calc(c * var(--og-color-chroma-neutral) * 0.8) h / 1);
   --og-shadow-color: 220deg 10% 40%;
 }

@@ -3,19 +3,19 @@
     /* ADD YOUR COLOR HERE */
     --u-color-core: oklch(50% .25 300);
 
-    /* Define Core Color - Using relative shifts from base */
+    /* Define Core Color */
     --u-color-core-01: var(--u-color-core);
-    --u-color-core-02: 340;  /* Shift +340° from base (was -20°) */
-    --u-color-core-03: 270;  /* Shift +270° from base (was -90°) */
-    --u-color-core-04: 40;   /* Shift +40° from base */
-    --u-color-core-05: 130;  /* Shift +130° from base */
-    --u-color-core-06: 180;  /* Shift +180° from base */
-    --u-color-core-07: 220;  /* Shift +220° from base */
-    --u-color-core-08: 310;  /* Shift +310° from base (was -50°) */
-    --u-color-core-09: 200;  /* Shift +200° from base (was -160°) */
-    --u-color-core-10: 90;   /* Shift +90° from base */
-    --u-color-core-11: 90;   /* Shift +90° from base (was -270°) */
-    --u-color-core-12: 310;  /* Shift +310° from base */
+    --u-color-core-02: -30;
+    --u-color-core-03: -60;
+    --u-color-core-04: -90;
+    --u-color-core-05: -120;
+    --u-color-core-06: -150;
+    --u-color-core-07: -180;
+    --u-color-core-08: -210;
+    --u-color-core-09: -240;
+    --u-color-core-10: -270;
+    --u-color-core-11: -300;
+    --u-color-core-12: -330;
     
     /* Custom Factors */
     --u-color-tint-scale: 1.25;

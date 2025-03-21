@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olivia Gray Design System</title>
+    <link rel="stylesheet" href="design-system/index.css">
+    <link rel="stylesheet" href="generated-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,600;8..144,780&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Layout & Demo Styles */
+        :root {
+            --og-font-size-base: 16px;
+            --section-padding: 2rem;
+            --card-min-width: 300px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--og-font-body, 'Roboto Flex', sans-serif);
+            font-size: var(--og-font-size-base);
+            line-height: var(--og-line-height-normal);
+            background-color: var(--og-bg-primary, var(--u-color-core-00-900));
+            color: var(--og-text-primary, var(--u-color-core-00-100));
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: min(90%, 1200px);
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        header {
+            margin-bottom: var(--section-padding);
+            text-align: center;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--og-font-heading, 'Roboto Flex', sans-serif);
+            font-weight: var(--og-font-weight-heading, 780);
+            line-height: var(--og-line-height-display, 1.05);
+            letter-spacing: var(--og-letter-spacing-tight, -0.035em);
+            margin-bottom: calc(var(--og-spacing-3, 0.75rem));
+        }
+        
+        h1 {
+            font-size: var(--og-font-size-xxxl, 3.75rem);
+            margin-bottom: calc(var(--og-spacing-5, 1.25rem));
+        }
+        
+        h2 {
+            font-size: var(--og-font-size-xxl, 2.82rem);
+            margin-top: var(--og-spacing-13, 3.25rem);
+            margin-bottom: var(--og-spacing-5, 1.25rem);
+        }
+        
+        h3 {
+            font-size: var(--og-font-size-xl, 2.12rem);
+            margin-top: var(--og-spacing-8, 2rem);
+            margin-bottom: var(--og-spacing-3, 0.75rem);
+        }
+        
+        p {
+            color: var(--og-text-secondary, var(--u-color-core-00-200));
+            margin-bottom: var(--og-spacing-5, 1.25rem);
+        }
+        
+        section {
+            margin-bottom: var(--section-padding);
+        }
+        
+        .section-description {
+            max-width: 800px;
+            margin-bottom: var(--og-spacing-8, 2rem);
+        }
+        
+        /* Color Samples */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: var(--og-spacing-3, 0.75rem);
+            margin-bottom: var(--og-spacing-8, 2rem);
+        }
+        
+        .color-sample {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: var(--og-spacing-5, 1.25rem);
+        }
+        
+        .color-sample h3 {
+            margin-bottom: var(--og-spacing-5, 1.25rem);
+            font-size: var(--og-font-size-lg, 1.33rem);
+        }
+        
+        .color-chip {
+            height: 80px;
+            border-radius: var(--og-radius-md, 0.5rem);
+            margin-bottom: var(--og-spacing-2, 0.5rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: var(--og-font-size-sm, 0.75rem);
+            font-family: var(--og-font-mono, 'JetBrains Mono', monospace);
+        }
+        
+        .color-label {
+            font-size: var(--og-font-size-sm, 0.75rem);
+            font-family: var(--og-font-mono, 'JetBrains Mono', monospace);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Component Demo Section */
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(var(--card-min-width), 1fr));
+            gap: var(--og-spacing-8, 2rem);
+        }
+        
+        .component-card {
+            background-color: var(--og-bg-secondary, var(--u-color-core-00-800));
+            border: var(--og-border-thin, 1px) solid var(--og-bg-tertiary, var(--u-color-core-00-700));
+            border-radius: var(--og-radius-card, var(--og-radius-lg, 1rem));
+            padding: var(--og-spacing-card, 1.5rem);
+            box-shadow: var(--og-shadow-md);
+        }
+        
+        .component-title {
+            font-size: var(--og-font-size-lg, 1.33rem);
+            margin-bottom: var(--og-spacing-5, 1.25rem);
+        }
+        
+        .component-description {
+            font-size: var(--og-font-size-sm, 0.75rem);
+            margin-bottom: var(--og-spacing-5, 1.25rem);
+            color: var(--og-text-tertiary, var(--u-color-core-00-300));
+        }
+        
+        .component-demo {
+            margin-top: var(--og-spacing-5, 1.25rem);
+            padding: var(--og-spacing-5, 1.25rem);
+            background-color: var(--og-bg-tertiary, var(--u-color-core-00-700));
+            border-radius: var(--og-radius-md, 0.5rem);
+        }
+        
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: var(--og-spacing-button-y, 0.75rem) var(--og-spacing-button-x, 1.25rem);
+            border: none;
+            border-radius: var(--og-radius-button, var(--og-radius-md, 0.5rem));
+            font-weight: var(--og-font-weight-emphasis, 600);
+            font-size: var(--og-font-size-md);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--og-duration-normal, 180ms) var(--og-easing-productive, cubic-bezier(0, 0, 0.2, 1));
+            margin-right: var(--og-spacing-3, 0.75rem);
+            margin-bottom: var(--og-spacing-3, 0.75rem);
+        }
+        
+        .btn-primary {
+            background-color: var(--og-component-primary, var(--og-brand-primary, var(--u-color-core-07-500)));
+            color: var(--og-component-text-primary, var(--og-text-primary, var(--u-color-core-00-100)));
+            box-shadow: var(--og-shadow-xs);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--og-component-primary-hover, var(--u-color-core-07-600));
+            box-shadow: var(--og-shadow-sm);
+        }
+        
+        .btn-secondary {
+            background-color: var(--og-component-secondary, var(--u-color-core-00-700));
+            color: var(--og-component-text-secondary, var(--og-text-primary, var(--u-color-core-00-100)));
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--og-component-secondary-hover, var(--u-color-core-00-800));
+        }
+        
+        .btn-accent {
+            background-color: var(--og-component-accent, var(--u-color-core-00-600));
+            color: var(--og-component-text-accent, var(--og-text-primary, var(--u-color-core-00-100)));
+        }
+        
+        .btn-accent:hover {
+            background-color: var(--og-component-accent-hover, var(--u-color-core-00-700));
+        }
+        
+        /* Form Styles */
+        .form-group {
+            margin-bottom: var(--og-spacing-5, 1.25rem);
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: var(--og-spacing-2, 0.5rem);
+            font-weight: var(--og-font-weight-emphasis, 600);
+        }
+        
+        .form-input {
+            display: block;
+            width: 100%;
+            padding: var(--og-spacing-input-y, 0.75rem) var(--og-spacing-input-x, 1rem);
+            background-color: var(--og-bg-tertiary, var(--u-color-core-00-700));
+            color: var(--og-text-primary, var(--u-color-core-00-100));
+            border: var(--og-border-thin, 1px) solid var(--og-component-secondary, var(--u-color-core-00-700));
+            border-radius: var(--og-radius-input, var(--og-radius-sm, 0.25rem));
+            font-size: var(--og-font-size-md);
+            transition: border-color var(--og-duration-normal, 180ms) var(--og-easing-productive, cubic-bezier(0, 0, 0.2, 1));
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--og-brand-primary, var(--u-color-core-07-500));
+            box-shadow: 0 0 0 2px var(--og-brand-primary, var(--u-color-core-07-500), 0.25);
+        }
+        
+        /* Card Styles */
+        .card {
+            background-color: var(--og-bg-secondary, var(--u-color-core-00-800));
+            border: var(--og-border-thin, 1px) solid var(--og-bg-tertiary, var(--u-color-core-00-700));
+            border-radius: var(--og-radius-card, var(--og-radius-lg, 1rem));
+            padding: var(--og-spacing-card, 1.5rem);
+            box-shadow: var(--og-shadow-md);
+        }
+        
+        .card-header {
+            margin-bottom: var(--og-spacing-5, 1.25rem);
+            border-bottom: var(--og-border-thin, 1px) solid var(--og-bg-tertiary, var(--u-color-core-00-700));
+            padding-bottom: var(--og-spacing-3, 0.75rem);
+        }
+        
+        .card-content {
+            margin-bottom: var(--og-spacing-5, 1.25rem);
+        }
+        
+        .card-footer {
+            border-top: var(--og-border-thin, 1px) solid var(--og-bg-tertiary, var(--u-color-core-00-700));
+            padding-top: var(--og-spacing-3, 0.75rem);
+        }
+        
+        /* Alert Styles */
+        .alert {
+            padding: var(--og-spacing-5, 1.25rem);
+            border-radius: var(--og-radius-md, 0.5rem);
+            margin-bottom: var(--og-spacing-5, 1.25rem);
+            border-left: var(--og-border-thick, 3px) solid transparent;
+        }
+        
+        .alert-success {
+            background-color: color-mix(in oklch, var(--og-status-success, var(--u-color-core-04-500)) 15%, var(--og-bg-tertiary, var(--u-color-core-00-700)));
+            border-left-color: var(--og-status-success, var(--u-color-core-04-500));
+        }
+        
+        .alert-error {
+            background-color: color-mix(in oklch, var(--og-status-error, var(--u-color-core-03-500)) 15%, var(--og-bg-tertiary, var(--u-color-core-00-700)));
+            border-left-color: var(--og-status-error, var(--u-color-core-03-500));
+        }
+        
+        .alert-warning {
+            background-color: color-mix(in oklch, var(--og-status-warning, var(--u-color-core-02-500)) 15%, var(--og-bg-tertiary, var(--u-color-core-00-700)));
+            border-left-color: var(--og-status-warning, var(--u-color-core-02-500));
+        }
+        
+        .alert-info {
+            background-color: color-mix(in oklch, var(--og-status-info, var(--u-color-core-05-500)) 15%, var(--og-bg-tertiary, var(--u-color-core-00-700)));
+            border-left-color: var(--og-status-info, var(--u-color-core-05-500));
+        }
+        
+        /* Mode Toggler */
+        .mode-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+            background-color: var(--og-bg-secondary, var(--u-color-core-00-800));
+            border: var(--og-border-thin, 1px) solid var(--og-bg-tertiary, var(--u-color-core-00-700));
+            border-radius: var(--og-radius-full, 9999px);
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--og-shadow-md);
+        }
+        
+        /* Typography Demo */
+        .typography-sample {
+            margin-bottom: var(--og-spacing-13, 3.25rem);
+        }
+        
+        .font-sample {
+            margin-bottom: var(--og-spacing-8, 2rem);
+        }
+        
+        .code-block {
+            font-family: var(--og-font-mono, 'JetBrains Mono', monospace);
+            background-color: var(--og-bg-tertiary, var(--u-color-core-00-700));
+            padding: var(--og-spacing-3, 0.75rem);
+            border-radius: var(--og-radius-sm, 0.25rem);
+            font-size: 0.9em;
+            overflow-x: auto;
+            color: var(--og-text-secondary, var(--u-color-core-00-200));
+        }
+    </style>
+</head>
+<body>
+    <!-- Mode Toggle Button -->
+    <button class="mode-toggle" id="mode-toggle">
+        🌓
+    </button>
+
+    <div class="container">
+        <header>
+            <h1>Olivia Gray Design System</h1>
+            <p class="section-description">A modern design system featuring a sophisticated aesthetic with subtle contrasts, cool tones, and thoughtful spacing. This showcase demonstrates the components, colors, and styles defined in Olivia's design profile.</p>
+        </header>
+
+        <section id="color-system">
+            <h2>Color System</h2>
+            <p class="section-description">The color system is based on OKLCH color space with a base color of muted purple (oklch(45% 0.09 270)). The system generates semantic colors with mathematical relationships for tints, shades, and harmony shifts.</p>
+            
+            <h3>Core Colors</h3>
+            <div class="color-grid">
+                <div class="color-chip" style="background-color: var(--u-color-core-01-500, #6a5ca7);">Core 01</div>
+                <div class="color-chip" style="background-color: var(--u-color-core-02-500, #a75c64);">Core 02</div>
+                <div class="color-chip" style="background-color: var(--u-color-core-03-500, #5ca7a0);">Core 03</div>
+                <div class="color-chip" style="background-color: var(--u-color-core-04-500, #a79e5c);">Core 04</div>
+                <div class="color-chip" style="background-color: var(--u-color-core-05-500, #5ca76a);">Core 05</div>
+                <div class="color-chip" style="background-color: var(--u-color-core-06-500, #5ca7a0);">Core 06</div>
+                <div class="color-chip" style="background-color: var(--u-color-core-07-500, #5c71a7);">Core 07</div>
+                <div class="color-chip" style="background-color: var(--u-color-core-08-500, #a05ca7);">Core 08</div>
+                <div class="color-chip" style="background-color: var(--u-color-core-09-500, #5ca78a);">Core 09</div>
+                <div class="color-chip" style="background-color: var(--u-color-core-10-500, #86a75c);">Core 10</div>
+                <div class="color-chip" style="background-color: var(--u-color-core-11-500, #86a75c);">Core 11</div>
+                <div class="color-chip" style="background-color: var(--u-color-core-12-500, #a05ca7);">Core 12</div>
+            </div>
+            
+            <h3>Semantic Colors</h3>
+            <div class="color-sample">
+                <h3>Brand Colors</h3>
+                <div class="color-grid">
+                    <div class="color-chip" style="background-color: var(--og-brand-primary, var(--u-color-core-07-500));">Primary</div>
+                    <div class="color-chip" style="background-color: var(--og-brand-secondary, var(--u-color-core-05-600));">Secondary</div>
+                </div>
+            </div>
+            
+            <div class="color-sample">
+                <h3>Background Colors</h3>
+                <div class="color-grid">
+                    <div class="color-chip" style="background-color: var(--og-bg-primary, var(--u-color-core-00-900));">Primary</div>
+                    <div class="color-chip" style="background-color: var(--og-bg-secondary, var(--u-color-core-00-800));">Secondary</div>
+                    <div class="color-chip" style="background-color: var(--og-bg-tertiary, var(--u-color-core-00-700));">Tertiary</div>
+                    <div class="color-chip" style="background-color: var(--og-bg-accent, var(--u-color-core-05-800));">Accent</div>
+                </div>
+            </div>
+            
+            <div class="color-sample">
+                <h3>Text Colors</h3>
+                <div class="color-grid">
+                    <div class="color-chip" style="background-color: var(--og-text-primary, var(--u-color-core-00-100));">Primary</div>
+                    <div class="color-chip" style="background-color: var(--og-text-secondary, var(--u-color-core-00-200));">Secondary</div>
+                    <div class="color-chip" style="background-color: var(--og-text-tertiary, var(--u-color-core-00-300));">Tertiary</div>
+                    <div class="color-chip" style="background-color: var(--og-text-accent, var(--u-color-core-07-400));">Accent</div>
+                </div>
+            </div>
+            
+            <div class="color-sample">
+                <h3>Status Colors</h3>
+                <div class="color-grid">
+                    <div class="color-chip" style="background-color: var(--og-status-success, var(--u-color-core-04-500));">Success</div>
+                    <div class="color-chip" style="background-color: var(--og-status-warning, var(--u-color-core-02-500));">Warning</div>
+                    <div class="color-chip" style="background-color: var(--og-status-error, var(--u-color-core-03-500));">Error</div>
+                    <div class="color-chip" style="background-color: var(--og-status-info, var(--u-color-core-05-500));">Info</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="typography">
+            <h2>Typography</h2>
+            <p class="section-description">The typography system uses Roboto Flex for headings and body text, with JetBrains Mono for code. It features a type scale ratio of 1.33, with weights ranging from regular (400) to extra bold (780).</p>
+            
+            <div class="typography-sample">
+                <div class="font-sample">
+                    <h3>Headings</h3>
+                    <h1>Heading 1 (3.75rem)</h1>
+                    <h2>Heading 2 (2.82rem)</h2>
+                    <h3>Heading 3 (2.12rem)</h3>
+                    <h4>Heading 4 (1.59rem)</h4>
+                    <h5>Heading 5 (1.19rem)</h5>
+                    <h6>Heading 6 (1rem)</h6>
+                </div>
+                
+                <div class="font-sample">
+                    <h3>Body Text</h3>
+                    <p>This is a paragraph with regular body text (1rem) set in Roboto Flex with a line height of 1.45. The text color is using the secondary text color variable for better readability and contrast against the background.</p>
+                    <p><strong>This text is emphasized</strong> using the font-weight-emphasis variable (600), providing visual hierarchy without being too heavy.</p>
+                </div>
+                
+                <div class="font-sample">
+                    <h3>Monospace</h3>
+                    <div class="code-block">
+                        // Sample code in JetBrains Mono
+                        function createColorScale(baseColor, steps) {
+                          return Array.from({ length: steps }, (_, i) => {
+                            return `var(--og-color-core-01-${(i + 1) * 100})`;
+                          });
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="components">
+            <h2>Components</h2>
+            <p class="section-description">The component library includes buttons, forms, cards, and alerts designed with Olivia's aesthetic. Each component is built using the design system tokens for consistency.</p>
+            
+            <div class="component-grid">
+                <div class="component-card">
+                    <h3 class="component-title">Buttons</h3>
+                    <p class="component-description">Buttons use the semantic color system with appropriate padding, border radius, and motion properties.</p>
+                    <div class="component-demo">
+                        <button class="btn btn-primary">Primary Button</button>
+                        <button class="btn btn-secondary">Secondary Button</button>
+                        <button class="btn btn-accent">Accent Button</button>
+                    </div>
+                </div>
+                
+                <div class="component-card">
+                    <h3 class="component-title">Form Inputs</h3>
+                    <p class="component-description">Form inputs feature subtle backgrounds, clear focus states, and appropriate spacing.</p>
+                    <div class="component-demo">
+                        <div class="form-group">
+                            <label class="form-label">Text Input</label>
+                            <input type="text" class="form-input" placeholder="Enter some text...">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Select Menu</label>
+                            <select class="form-input">
+                                <option>Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="component-card">
+                    <h3 class="component-title">Cards</h3>
+                    <p class="component-description">Cards provide content containers with appropriate spacing, borders, and shadows.</p>
+                    <div class="component-demo">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Card Title</h4>
+                            </div>
+                            <div class="card-content">
+                                <p>This is the content of the card. Cards are used to group related information.</p>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary">Action</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="component-card">
+                    <h3 class="component-title">Alerts</h3>
+                    <p class="component-description">Alerts communicate important messages with status-appropriate colors.</p>
+                    <div class="component-demo">
+                        <div class="alert alert-success">
+                            <strong>Success:</strong> Your changes have been saved successfully.
+                        </div>
+                        <div class="alert alert-error">
+                            <strong>Error:</strong> There was a problem processing your request.
+                        </div>
+                        <div class="alert alert-warning">
+                            <strong>Warning:</strong> Your session will expire in 5 minutes.
+                        </div>
+                        <div class="alert alert-info">
+                            <strong>Info:</strong> A new version is available for download.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Mode Toggle Functionality
+        const modeToggle = document.getElementById('mode-toggle');
+        const body = document.body;
+        
+        modeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+        });
+    </script>
+</body>
+</html> 
